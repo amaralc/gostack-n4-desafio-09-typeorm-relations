@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class CreateCustomers1608812282146
+export default class CreateCustomers1596398100244
   implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
@@ -22,6 +22,7 @@ export default class CreateCustomers1608812282146
           {
             name: 'email',
             type: 'varchar',
+            isUnique: true,
           },
           {
             name: 'created_at',

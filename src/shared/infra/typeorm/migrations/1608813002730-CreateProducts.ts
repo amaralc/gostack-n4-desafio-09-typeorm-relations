@@ -1,8 +1,8 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class CreateProducts1608813002730 implements MigrationInterface {
+export default class CreateProducts1596398411415 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.createTable(
+    await queryRunner.createTable(
       new Table({
         name: 'products',
         columns: [
@@ -16,12 +16,13 @@ export default class CreateProducts1608813002730 implements MigrationInterface {
           {
             name: 'name',
             type: 'varchar',
+            isUnique: true,
           },
           {
             name: 'price',
             type: 'decimal',
-            precision: 10, // Algarismos à esquerda da vírgula
-            scale: 2, // Pontos decimais
+            precision: 10,
+            scale: 2,
           },
           {
             name: 'quantity',
